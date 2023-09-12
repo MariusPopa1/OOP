@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-class  Main {
+class  User {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter Name");
