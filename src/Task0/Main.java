@@ -11,6 +11,6 @@ class Main {
         person.isAsleep(); // The person has both stopped and went to sleep, so he is asleep now.
         person.colorOutfit(); // The person has not changed yet, so he is naked.
         person.change("red");
-        person.colorOutfit(); // The person put on red clothes, thus he is now wearing a red outfit.
+        person.colorOutfit(); // The person put on red clothes, thus he is now wearing a red outfit
     }
 }

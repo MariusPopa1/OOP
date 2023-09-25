@@ -40,7 +40,7 @@ public class StoredInformation {
         if (Objects.equals(clothes, "naked")) {
             System.out.println("The person has not put on clothes yet");
         } else {
-            System.out.println("The person is wearing an outfit with the colour " + clothes);
+            System.out.println("The person is wearing an outfit with the colour  " + clothes);
         }
     }
     }

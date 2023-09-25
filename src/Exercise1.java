@@ -4,7 +4,7 @@ import java.util.Scanner;
 class  User {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
-        System.out.println("Enter Name");
+        System.out.println("Enter Name ");
 
         String name = myObj.nextLine();
         String shortName =Character.toUpperCase(name.charAt(0))+".";
