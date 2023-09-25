@@ -2,9 +2,6 @@
     int age;
     int disability;
     String name;
-
-
-
     public Member(String name,int age,int disability) {
     this.name = name;
     this.age = age;
