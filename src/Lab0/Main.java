@@ -1,4 +1,4 @@
-package Task0;
+package Lab0;
 
 class Main {
     public static void main(String[] args){

@@ -1,4 +1,6 @@
- class Member{
+package Challenges;
+
+class Member{
     int age;
     int disability;
     String name;

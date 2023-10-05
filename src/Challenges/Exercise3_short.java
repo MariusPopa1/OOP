@@ -1,3 +1,5 @@
+package Challenges;
+
 import java.util.Scanner;
 class Diamond_New {
     public static void main(String[] args) {
