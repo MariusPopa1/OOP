@@ -2,7 +2,6 @@ package Lab0;
 
 class Main {
     public static void main(String[] args){
-
         StoredInformation person = new StoredInformation();
         person.moveFaster(5);
         person.isMoving(); // The person is moving since his speed is not 0.
