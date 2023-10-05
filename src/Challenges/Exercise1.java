@@ -16,6 +16,5 @@ class  User {
                         name.charAt(i + 1));
                 shortName = shortName + "."; }
         System.out.println(shortName);
-        System.out.println("1");
     }
 }
