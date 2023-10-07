@@ -4,16 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-import static Lab1.TextColour.*;
-
 public class StudentOperations {
+    private TextColour textColour = new TextColour();
+    private EmailChecker emailChecker = new EmailChecker();
+    private DisplayStudent displayStudent = new DisplayStudent();
 
-    public static void studentOperations() {
+    public void studentOperations() {
         char choice;
+        String trialEmail;
         ArrayList<Student> studentList = new ArrayList<>(); // Create an array list object
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println(GREEN + "Select an option:\n'S' to introduce a student;\n'V' to view different groups of students;\nor 'Q' to quit:" + RESET); // option selection
+            System.out.println(textColour.GREEN + "Select an option:\n'S' to introduce a student;\n'V' to view different groups of students;\nor 'Q' to quit:" + textColour.RESET); // option selection
             choice = scanner.next().charAt(0);
 
             switch (choice) {
@@ -23,8 +25,10 @@ public class StudentOperations {
                     student.setFirstName(scanner.next());
                     System.out.print("Enter last name: ");
                     student.setLastName(scanner.next());
-                    System.out.print("Enter email: ");
-                    student.setEmail(scanner.next());
+                    trialEmail = (student.getFirstName() + "." + student.getLastName() + "@isa.utm.md");
+                    if (emailChecker.isEmailExists(studentList, trialEmail)) {
+                        System.out.println("Email already exists in the list. Please try again.");
+                    }
                     System.out.print("Enter enrolment date (dd/mm/yyyy): ");
                     student.setEnrolmentDate(new Date(scanner.next()));
                     System.out.print("Enter date of birth (dd/mm/yyyy): ");
@@ -35,56 +39,40 @@ public class StudentOperations {
                     System.out.println("Student added successfully!");
                 }
                 case 'V' -> {
-                    System.out.println(GREEN + "Select an option:\n'E' to view enrolled students;\n'G' to view graduated students;\n'A' to view all students " + RESET);
+                    System.out.println(textColour.GREEN + "Select an option:\n'E' to view enrolled students;\n'G' to view graduated students;\n'A' to view all students " + textColour.RESET);
                     char choiceView = scanner.next().charAt(0);
                     switch (choiceView) {
                         case 'E' -> {
-                            System.out.println(PURPLE + "List of Enrolled Students:" + RESET);
+                            System.out.println(textColour.PURPLE + "List of Enrolled Students:" + textColour.RESET);
                             for (Student s : studentList) {
                                 if (!s.getGraduated()) {
-                                    System.out.println("First Name: " + s.getFirstName());
-                                    System.out.println("Last Name: " + s.getLastName());
-                                    System.out.println("Email: " + s.getEmail());
-                                    System.out.println("Enrolment Date: " + s.getEnrolmentDate());
-                                    System.out.println("Date of Birth: " + s.getDateOfBirth());
-                                    System.out.println();
+                                    displayStudent.printStudents(studentList);
                                 }
-                            }
-                        }
-                        case 'A' -> {
-                            System.out.println(WHITE + "List of Enrolled Students:" + RESET);
-                            for (Student s : studentList) {
-                                    System.out.println("First Name: " + s.getFirstName());
-                                    System.out.println("Last Name: " + s.getLastName());
-                                    System.out.println("Email: " + s.getEmail());
-                                    System.out.println("Enrolment Date: " + s.getEnrolmentDate());
-                                    System.out.println("Date of Birth: " + s.getDateOfBirth());
-                                    System.out.println("Has Graduated: " + s.getGraduated());
-                                    System.out.println();
                             }
                         }
                         case 'G' -> {
-                            System.out.println(CYAN + "List of Graduated students:" + RESET);
+                            System.out.println(textColour.CYAN + "List of Graduated students:" + textColour.RESET);
                             for (Student s : studentList) {
                                 if (s.getGraduated()) {
-                                    System.out.println("First Name: " + s.getFirstName());
-                                    System.out.println("Last Name: " + s.getLastName());
-                                    System.out.println("Email: " + s.getEmail());
-                                    System.out.println("Enrolment Date: " + s.getEnrolmentDate());
-                                    System.out.println("Date of Birth: " + s.getDateOfBirth());
-                                    System.out.println();
+                                    displayStudent.printStudents(studentList);
 
                                 }
 
                             }
                         }
-                        default -> System.out.println(RED + "Invalid input. Please try again." + RESET);
+                        case 'A' -> {
+                            System.out.println(textColour.WHITE + "List of All Enrolled Students:" + textColour.RESET);
+                            displayStudent.printStudents(studentList);
+                        }
+
+                        default ->
+                                System.out.println(textColour.RED + "Invalid input. Please try again." + textColour.RESET);
                     }
                 }
 
 
-                case 'Q' -> System.out.println(RED + "Exiting program..." + RESET);
-                default -> System.out.println(RED + "Invalid input. Please try again." + RESET);
+                case 'Q' -> System.out.println(textColour.RED + "Exiting program..." + textColour.RESET);
+                default -> System.out.println(textColour.RED + "Invalid input. Please try again." + textColour.RESET);
             }
         } while (choice != 'Q');
     }

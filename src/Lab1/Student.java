@@ -3,7 +3,7 @@ package Lab1;
 import java.util.Date;
 
 public class Student {
-
+    // using encapsulation principle. declare private, and make public setters and getters.
     private String firstName;
     private String lastName;
     private String email;
@@ -50,12 +50,6 @@ public class Student {
 
         lastName = newLastName;
     }
-
-    public void setEmail(String newEmail) {
-
-        email = newEmail;
-    }
-
     public void setEnrolmentDate(Date newEnrolmentDate) {
 
         enrolmentDate = newEnrolmentDate;
