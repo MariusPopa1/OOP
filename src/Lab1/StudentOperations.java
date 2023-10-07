@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import static Lab1.TextColour.*;
+
 public class StudentOperations {
 
     public static void studentOperations() {
         char choice;
-        ArrayList<Student> studentArrayList = new ArrayList<>(); // Create an array list object
+        ArrayList<Student> studentList = new ArrayList<>(); // Create an array list object
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("Press 'S' to introduce a student, 'D' to display all students, or 'Q' to quit:"); // option selection
+            System.out.println(GREEN + "Press 'S' to introduce a student, 'E' to display enrolled students, 'G' to display all graduated students or 'Q' to quit:" + RESET); // option selection
             choice = scanner.next().charAt(0);
 
             switch (choice) {
@@ -35,31 +37,47 @@ public class StudentOperations {
                     System.out.print("Has the student graduated? (true/false): ");
                     student.setGraduated(scanner.nextBoolean());
 
-                    studentArrayList.add(student);
+                    studentList.add(student);
                     System.out.println("Student added successfully!");
                     break;
 
-                case 'D':
-                    System.out.println("List of Students:");
-                    for (Student s : studentArrayList) {
-                        System.out.println("First Name: " + s.getFirstName());
-                        System.out.println("Last Name: " + s.getLastName());
-                        System.out.println("Email: " + s.getEmail());
-                        System.out.println("Enrolment Date: " + s.getEnrolmentDate());
-                        System.out.println("Date of Birth: " + s.getDateOfBirth());
-                        System.out.println("Graduated: " + s.getGraduated());
-                        System.out.println();
+                case 'E':
+                    System.out.println(PURPLE + "List of Enrolled Students:" + RESET);
+                    for (Student s : studentList) {
+                        if (!s.getGraduated()) {
+                            System.out.println("First Name: " + s.getFirstName());
+                            System.out.println("Last Name: " + s.getLastName());
+                            System.out.println("Email: " + s.getEmail());
+                            System.out.println("Enrolment Date: " + s.getEnrolmentDate());
+                            System.out.println("Date of Birth: " + s.getDateOfBirth());
+                            System.out.println();
+                            break;
+                        }
                     }
                     break;
+                case 'G':
+                    System.out.println(CYAN +"List of Graduated students:" + RESET);
+                    for (Student s : studentList) {
+                        if (s.getGraduated()) {
+                            System.out.println("First Name: " + s.getFirstName());
+                            System.out.println("Last Name: " + s.getLastName());
+                            System.out.println("Email: " + s.getEmail());
+                            System.out.println("Enrolment Date: " + s.getEnrolmentDate());
+                            System.out.println("Date of Birth: " + s.getDateOfBirth());
+                            System.out.println();
+
+                        }
+
+                    } break;
 
                 case 'Q':
-                    System.out.println("Exiting program...");
+                    System.out.println(RED + "Exiting program..." + RESET);
                     break;
 
                 default:
-                    System.out.println("Invalid input. Please try again.");
+                    System.out.println(RED + "Invalid input. Please try again." + RESET);
                     break;
             }
-        } while (choice != 'Q' && choice != 'q');
+        } while (choice != 'Q');
     }
 }
