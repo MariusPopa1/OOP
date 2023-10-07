@@ -13,7 +13,7 @@ public class StudentOperations {
         ArrayList<Student> studentList = new ArrayList<>(); // Create an array list object
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println(GREEN + "Select an option:\n'S' to introduce a student\n'V' to view different groups of students,\nor 'Q' to quit:" + RESET); // option selection
+            System.out.println(GREEN + "Select an option:\n'S' to introduce a student;\n'V' to view different groups of students;\nor 'Q' to quit:" + RESET); // option selection
             choice = scanner.next().charAt(0);
 
             switch (choice) {
@@ -35,8 +35,8 @@ public class StudentOperations {
                     System.out.println("Student added successfully!");
                 }
                 case 'V' -> {
+                    System.out.println(GREEN + "Select an option:\n'E' to view enrolled students;\n'G' to view graduated students;\n'A' to view all students " + RESET);
                     char choiceView = scanner.next().charAt(0);
-                    System.out.println(GREEN + "Select an option:\n'E' to display enrolled students,\n'G' to display all graduated students" + RESET);
                     switch (choiceView) {
                         case 'E' -> {
                             System.out.println(PURPLE + "List of Enrolled Students:" + RESET);
@@ -49,6 +49,18 @@ public class StudentOperations {
                                     System.out.println("Date of Birth: " + s.getDateOfBirth());
                                     System.out.println();
                                 }
+                            }
+                        }
+                        case 'A' -> {
+                            System.out.println(WHITE + "List of Enrolled Students:" + RESET);
+                            for (Student s : studentList) {
+                                    System.out.println("First Name: " + s.getFirstName());
+                                    System.out.println("Last Name: " + s.getLastName());
+                                    System.out.println("Email: " + s.getEmail());
+                                    System.out.println("Enrolment Date: " + s.getEnrolmentDate());
+                                    System.out.println("Date of Birth: " + s.getDateOfBirth());
+                                    System.out.println("Has Graduated: " + s.getGraduated());
+                                    System.out.println();
                             }
                         }
                         case 'G' -> {
