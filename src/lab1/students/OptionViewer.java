@@ -1,9 +1,11 @@
-package Lab1;
+package lab1.students;
+
+import lab1.general_use.TextColour;
 
 import java.util.ArrayList;
 
-public class ViewOptions {
-    private final DisplayStudent displayStudent = new DisplayStudent();
+public class OptionViewer {
+    private final StudentDisplayed displayStudent = new StudentDisplayed();
     private final TextColour textColour = new TextColour();
 
     public void viewEnrolledStudents(ArrayList<Student> studentList) {

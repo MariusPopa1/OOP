@@ -1,4 +1,4 @@
-package Challenges;
+package challenges;
 
 class Member{
     int age;

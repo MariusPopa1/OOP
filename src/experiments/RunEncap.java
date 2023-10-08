@@ -1,4 +1,4 @@
-package Experiments;
+package experiments;
 
 /* File name : RunEncap.java */
 public class RunEncap {

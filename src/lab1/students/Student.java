@@ -1,4 +1,4 @@
-package Lab1;
+package lab1.students;
 
 import java.util.Date;
 
@@ -7,9 +7,11 @@ public class Student {
     private String firstName;
     private String lastName;
     private String email;
+    private String faculty;
     private Date enrolmentDate;
     private Date dateOfBirth;
     private Boolean graduated;
+
 
     public String getFirstName() {
 
@@ -25,7 +27,10 @@ public class Student {
 
         return email;
     }
+    public String getFaculty() {
 
+        return faculty;
+    }
     public Date getEnrolmentDate() {
 
         return enrolmentDate;
@@ -43,29 +48,35 @@ public class Student {
 
     public void setFirstName(String newFirstName) {
 
-        firstName = newFirstName;
+        this.firstName = newFirstName;
     }
 
     public void setLastName(String newLastName) {
 
-        lastName = newLastName;
+        this.lastName = newLastName;
     }
+
     public void setEmail(String newEmail) {
 
-        email = newEmail;
+        this.email = newEmail;
     }
+    public void setFaculty(String newFaculty) {
+
+        this.faculty = newFaculty;
+    }
+
     public void setEnrolmentDate(Date newEnrolmentDate) {
 
-        enrolmentDate = newEnrolmentDate;
+        this.enrolmentDate = newEnrolmentDate;
     }
 
     public void setDateOfBirth(Date newDateOfBirth) {
 
-        dateOfBirth = newDateOfBirth;
+        this.dateOfBirth = newDateOfBirth;
     }
 
     public void setGraduated(Boolean newGraduated) {
 
-        graduated = newGraduated;
+        this.graduated = newGraduated;
     }
 }

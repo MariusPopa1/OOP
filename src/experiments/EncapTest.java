@@ -1,4 +1,4 @@
-package Experiments;
+package experiments;
 
 public class EncapTest {
     private String name;

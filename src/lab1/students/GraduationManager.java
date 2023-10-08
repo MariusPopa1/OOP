@@ -1,5 +1,7 @@
 
-package Lab1;
+package lab1.students;
+
+import lab1.general_use.TextColour;
 
 import java.util.ArrayList;
 import java.util.Scanner;

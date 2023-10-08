@@ -1,12 +1,12 @@
-package Lab1;
+package lab1.students;
 
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.Date;
 
-public class ReadStudent {
+public class StudentCreation {
     private final EmailChecker emailChecker = new EmailChecker();
+
     public Student addStudent(ArrayList<Student> studentList) {
         Scanner scanner = new Scanner(System.in);
         Student student = new Student();
@@ -14,13 +14,14 @@ public class ReadStudent {
         student.setFirstName(scanner.next());
         System.out.print("Enter last name: ");
         student.setLastName(scanner.next());
-        String trialEmail = (student.getLastName().toLowerCase(Locale.ROOT) + "." + student.getFirstName().toLowerCase());
-
-        while (emailChecker.isEmailExists(studentList, trialEmail)) {
-            System.out.println("Email already exists in the list. Please add a number");
-            trialEmail = trialEmail+scanner.next();
-        }
-        student.setEmail(trialEmail+"@isa.utm.md");
+        String trialEmail = (student.getLastName().toLowerCase() + "." + student.getFirstName().toLowerCase());
+        System.out.print("Enter student faculty: ");
+        student.setFaculty(scanner.next());
+            while (emailChecker.emailExists(studentList, trialEmail)) {
+                System.out.println("Email already exists in the list. Please add a number");
+                trialEmail = trialEmail + scanner.next();
+            }
+        student.setEmail(trialEmail + "@isa.utm.md");
         System.out.print("Enter enrolment date (dd/mm/yyyy): ");
         student.setEnrolmentDate(new Date(scanner.next()));
         System.out.print("Enter date of birth (dd/mm/yyyy): ");
