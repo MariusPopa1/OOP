@@ -50,6 +50,10 @@ public class Student {
 
         lastName = newLastName;
     }
+    public void setEmail(String newEmail) {
+
+        email = newEmail;
+    }
     public void setEnrolmentDate(Date newEnrolmentDate) {
 
         enrolmentDate = newEnrolmentDate;

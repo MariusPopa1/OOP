@@ -1,6 +1,6 @@
 package Lab1;
 
-public class TextColour {
+public class textColour {
         // Declaring ANSI_RESET so that we can reset the color
         public String RESET = "\u001B[0m";
         public String CYAN = "\u001B[36m";
