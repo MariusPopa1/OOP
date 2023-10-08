@@ -1,6 +1,7 @@
 package Lab1;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ public class ReadStudent {
         student.setFirstName(scanner.next());
         System.out.print("Enter last name: ");
         student.setLastName(scanner.next());
-        String trialEmail = (student.getFirstName() + "." + student.getLastName());
+        String trialEmail = (student.getLastName().toLowerCase(Locale.ROOT) + "." + student.getFirstName().toLowerCase());
 
         while (emailChecker.isEmailExists(studentList, trialEmail)) {
             System.out.println("Email already exists in the list. Please add a number");
