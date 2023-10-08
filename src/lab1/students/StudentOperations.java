@@ -9,11 +9,12 @@ public class StudentOperations {
     private final OptionViewer viewOptions = new OptionViewer();
     private final GraduationManager graduationManager = new GraduationManager();
     private final StudentFaculty studentFaculty = new StudentFaculty();
+    private final StudentBelongs studentBelongs = new StudentBelongs();
     public void studentActions(ArrayList<Student> studentList) {
         String choice;
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println(textColour.GREEN + "Select an option:\n'S' to introduce a student;\n'V' to view different groups of students;\n'GS' to graduate a student;\n'F' to search for a student's faculty by email\nor 'Q' to quit:" + textColour.RESET); // option selection
+            System.out.println(textColour.GREEN + "Select an option:\n'S' to introduce a student;\n'V' to view different groups of students;\n'GS' to graduate a student;\n'F' to search for a student's faculty by email;\n'B' to check if a student belongs to a certain faculty\nor 'Q' to quit:" + textColour.RESET); // option selection
             choice = scanner.next();
 
             switch (choice) {
@@ -32,6 +33,7 @@ public class StudentOperations {
                 }
                 case "GS", "gs", "Gs", "gS" -> graduationManager.graduateStudent(studentList);
                 case "F", "f" -> studentFaculty.findStudent(studentList);
+                case "B", "b" -> System.out.println(studentBelongs.doesStudentBelong(studentList));
                 case "Q" -> System.out.println(textColour.RED + "Exiting program..." + textColour.RESET);
                 default -> System.out.println(textColour.RED + "Invalid input. Please try again." + textColour.RESET);
             }
