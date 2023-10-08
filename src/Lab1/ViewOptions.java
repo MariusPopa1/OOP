@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ViewOptions {
     private final DisplayStudent displayStudent = new DisplayStudent();
-    private final Lab1.textColour textColour = new textColour();
+    private final TextColour textColour = new TextColour();
 
     public void viewEnrolledStudents(ArrayList<Student> studentList) {
         System.out.println(textColour.PURPLE + "List of Enrolled Students:" + textColour.RESET);

@@ -3,7 +3,7 @@ package Lab1;
 import java.util.ArrayList;
 
 public class DisplayStudent {
-    private final Lab1.textColour textColour = new textColour();
+    private final TextColour textColour = new TextColour();
     public void printStudents(ArrayList<Student> studentList){
         for (Student s : studentList) {
             System.out.println(textColour.RED + "Student Nr" + (studentList.indexOf(s)+1) + textColour.RESET);

@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentOperations {
-    private final Lab1.textColour textColour = new textColour();
+    private final TextColour textColour = new TextColour();
     private final ReadStudent readStudent = new ReadStudent();
     private final ViewOptions viewOptions = new ViewOptions();
+    private final GraduationManager graduationManager = new GraduationManager();
 
     public void studentOperations() {
         char choice;
         ArrayList<Student> studentList = new ArrayList<>(); // Create an array list object
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println(textColour.GREEN + "Select an option:\n'S' to introduce a student;\n'V' to view different groups of students;\nor 'Q' to quit:" + textColour.RESET); // option selection
+            System.out.println(textColour.GREEN + "Select an option:\n'S' to introduce a student;\n'V' to view different groups of students;\n'G' to graduate a student;\nor 'Q' to quit:" + textColour.RESET); // option selection
             choice = scanner.next().charAt(0);
 
             switch (choice) {
@@ -31,6 +32,7 @@ public class StudentOperations {
                     }
                 }
                 case 'Q' -> System.out.println(textColour.RED + "Exiting program..." + textColour.RESET);
+                case 'G' -> graduationManager.graduateStudent(studentList);
                 default -> System.out.println(textColour.RED + "Invalid input. Please try again." + textColour.RESET);
             }
         } while (choice != 'Q');
