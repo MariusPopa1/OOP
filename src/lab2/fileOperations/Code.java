@@ -55,11 +55,14 @@ public class Code extends GeneralFile{
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
-                if (line.contains("def") || line.contains("public") || line.contains("protected") || line.contains("private")) {
+                if (line.contains("public") || line.contains("protected") || line.contains("private")) {
                     insideMethod = true;
                 }
                 if (insideMethod && line.endsWith("}")) {
                     insideMethod = false;
+                    methodCount++;
+                }
+                if (line.contains("def")){
                     methodCount++;
                 }
             }
