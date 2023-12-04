@@ -20,7 +20,6 @@ public class LinkedStack implements  Stack{
         top = newNode;
         size++;
     }
-
     @Override
     public int pop() {
         if (isEmpty()) {
