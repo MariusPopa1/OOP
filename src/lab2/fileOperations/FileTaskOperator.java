@@ -1,4 +1,4 @@
-package lab2.FileOperations;
+package lab2.fileOperations;
 
 public class FileTaskOperator {
     private FileTask fileTask;
@@ -11,3 +11,4 @@ public class FileTaskOperator {
         fileTask.execute(args);
     }
 }
+//Executor for operations defined by the FileTask interface.

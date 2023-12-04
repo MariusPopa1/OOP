@@ -12,6 +12,7 @@ public class Choice {
 
     public ArrayList<Student> studentList;
     public ArrayList<Faculty> facultyList;
+
     public void options() {
 
         StudentOperations studentOperations = new StudentOperations();

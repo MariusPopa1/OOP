@@ -1,26 +1,31 @@
 package lab2;
-
-
+    import java.util.Scanner;
     import java.io.File;
-
-    class ListFilesInFolder {
+    public class Main {
         public static void main(String[] args) {
-            String folderPath = "C:\\Users\\Asus\\Documents\\Pentagon_Files";
             File folder = new File("C:\\Users\\Asus\\Documents\\Pentagon_Files");
+            long lastCommit = 0;
 
-            if (folder.isDirectory()) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("What would you like to do?" );
+            char choice = scanner.next().charAt(0);
+
                 File[] files = folder.listFiles();
-                if (files != null) { 
+                if (files != null) {
                     System.out.println("Files in the folder:");
                     for (File file : files) {
-                        System.out.println(file.getName());
+                        System.out.print(file.getName());
+                        if (file.lastModified() > lastCommit){
+                            System.out.println(" - Changed");
+                        } else {
+                            System.out.println(" - No changes");
+                        }
                     }
                 } else {
                     System.out.println("No files found in the folder.");
                 }
-            } else {
-                System.out.println("The specified folder does not exist or is not a directory.");
-            }
+
         }
+
     }
 

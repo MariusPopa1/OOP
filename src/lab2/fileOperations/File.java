@@ -1,4 +1,4 @@
-package lab2.FileOperations;
+package lab2.fileOperations;
 
 public interface File {
         int getLines();

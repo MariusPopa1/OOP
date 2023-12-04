@@ -2,7 +2,7 @@ package lab0;
 
 import java.util.Objects;
 
-public class StoredInformation {
+public class Person {
     float speed = 0;
     boolean isSleeping = true;
     String clothes = "naked";

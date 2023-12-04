@@ -2,7 +2,7 @@ package lab0;
 
 class Main {
     public static void main(String[] args){
-        StoredInformation person = new StoredInformation();
+        Person person = new Person();
         person.moveFaster(5);
         person.isMoving(); // The person is moving since his speed is not 0.
         person.isAsleep(); // The person is not asleep since he is walking(no night walkers here);
