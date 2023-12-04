@@ -2,7 +2,6 @@ package lab2.fileOperations;
 
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Code extends GeneralFile{
@@ -12,6 +11,7 @@ public class Code extends GeneralFile{
     int lineCount;
     int classCount;
     int methodCount;
+    boolean insideMethod;
 
     public Code(String fileName, String extension, String createdDate, String lastModifiedDate) {
         super(fileName, extension, createdDate, lastModifiedDate);
@@ -55,7 +55,11 @@ public class Code extends GeneralFile{
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
-                if (line.contains("def") || line.contains("public void")) {
+                if (line.contains("def") || line.contains("public") || line.contains("protected") || line.contains("private")) {
+                    insideMethod = true;
+                }
+                if (insideMethod && line.endsWith("}")) {
+                    insideMethod = false;
                     methodCount++;
                 }
             }

@@ -3,7 +3,6 @@ package lab2.fileOperations;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
     public class Photo extends GeneralFile {
     private final FileInformation fileInfo = new FileInformation();

@@ -1,5 +1,4 @@
 package lab2.fileOperations;
-
 public interface FileTask {
     void execute(String[] args); //execute takes on an array of strings
 }
