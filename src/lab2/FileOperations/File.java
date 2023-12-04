@@ -1,11 +1,11 @@
 package lab2.FileOperations;
 
 public interface File {
-        int getLineCount();
-        int getWordCount();
-        int getCharacterCount();
-        int getClassCount();
-        int getMethodCount();
-        String getImageDimensions();
+        int getLines();
+        int getWords();
+        int getCharacters();
+        int getClasses();
+        int getMethods();
+        String getImageDetails();
     }
 
