@@ -19,11 +19,11 @@ public class FileInformation {
 
     public String getCreationDate(Path path) {
 
-        BasicFileAttributes attributes = null;
+        BasicFileAttributes attributes;
         try {
             attributes = Files.readAttributes(path, BasicFileAttributes.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            return "Corrupt file";
         }
         FileTime creationTime = attributes.creationTime();
             return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(creationTime.toMillis()));
